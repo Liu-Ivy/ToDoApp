@@ -1,33 +1,24 @@
 import React, { Component } from "react";
-import List from "./List";
+import TodoList from "./components/TodoList";
 
 class App extends Component {
   state = {
-    input: "",
-    lists: [],
+    count: 0,
   };
 
-  onChange = (event) => {
-    this.setState({ input: event.target.value });
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
   };
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    this.setState({
-      input: "",
-      lists: [...this.state.lists, this.state.input],
-    });
+  decrement = () => {
+    this.setState({ count: this.state.count - 1 });
   };
 
   render() {
     return (
       <div>
         <h1>To Do List</h1>
-        <form onSubmit={this.onSubmit}>
-          <input value={this.state.input} onChange={this.onChange} />
-          <button>Submit</button>
-        </form>
-        <List lists={this.state.lists} />
+        <TodoList />
       </div>
     );
   }
