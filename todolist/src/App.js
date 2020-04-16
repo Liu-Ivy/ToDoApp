@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import List from "./List";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      input: "",
-      lists: [],
-    };
-  }
+  state = {
+    input: "",
+    lists: [],
+  };
+
   onChange = (event) => {
     this.setState({ input: event.target.value });
   };
@@ -24,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1>To Do List</h1>
         <form onSubmit={this.onSubmit}>
           <input value={this.state.input} onChange={this.onChange} />
           <button>Submit</button>
