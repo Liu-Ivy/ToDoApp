@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoForm from "./TodoForm";
+import Todo from "./Todo";
 /*
   TodoMVC
   1. add todo
@@ -24,13 +25,36 @@ class TodoList extends Component {
     this.setState({ todos: [todo, ...this.state.todos] });
     console.log(this.state.todos);
   };
+
+  toggleComplete = (id) => {
+    this.setState((theTodo) => ({
+      todos: theTodo.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            id: todo.id,
+            text: todo.text,
+            complete: !todo.complete,
+          };
+        } else {
+          return todo;
+        }
+      }),
+    }));
+  };
+
   render() {
     return (
       <div>
         <TodoForm onSubmit={this.addTodos} />
         {/* {JSON.stringify(this.state.todos)} */}
         {this.state.todos.map((todo) => (
-          <div key={todo.id}>{todo.text}</div>
+          <Todo
+            key={todo.id}
+            todo={todo}
+            toggleComplete={() => {
+              this.toggleComplete(todo.id);
+            }}
+          />
         ))}
       </div>
     );
