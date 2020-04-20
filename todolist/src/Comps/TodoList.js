@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import shortid from "shortid";
 
 class TodoList extends Component {
   state = {
@@ -6,15 +7,39 @@ class TodoList extends Component {
     text: "",
   };
 
+  addTodos = (todo) => {
+    this.setState({
+      todos: [todo, ...this.state.todos],
+    });
+  };
+
   handleChange = (e) => {
-    console.log(typeof e.target);
     this.setState({ [e.target.type]: e.target.value });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.addTodos({
+      id: shortid.generate(),
+      text: this.state.text,
+      complete: false,
+    });
+    this.setState({ text: "" });
+  };
   render() {
     return (
       <div>
-        <input type="text" placeholder="...todo" onChange={this.handleChange} />
+        <form>
+          <input
+            input
+            type="text"
+            value={this.state.text}
+            placeholder="todo..."
+            onChange={this.handleChange}
+          />
+          <button onClick={this.handleSubmit}> Add </button>
+        </form>
+        {JSON.stringify(this.state.todos)}
       </div>
     );
   }
