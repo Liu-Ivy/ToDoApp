@@ -23,7 +23,6 @@ class TodoList extends Component {
   };
   addTodos = (todo) => {
     this.setState({ todos: [todo, ...this.state.todos] });
-    console.log(this.state.todos);
   };
 
   toggleComplete = (id) => {
@@ -50,7 +49,7 @@ class TodoList extends Component {
         {this.state.todos.map((todo) => (
           <Todo
             key={todo.id}
-            todo={todo}
+            text={todo.text}
             toggleComplete={() => {
               this.toggleComplete(todo.id);
             }}
