@@ -8,9 +8,7 @@ class TodoList extends Component {
   };
 
   addTodos = (todo) => {
-    this.setState({
-      todos: [todo, ...this.state.todos],
-    });
+    this.setState({ todos: [todo, ...this.state.todos] });
   };
 
   handleChange = (e) => {
@@ -26,20 +24,39 @@ class TodoList extends Component {
     });
     this.setState({ text: "" });
   };
+  toggleComplete = (id) => {
+    this.setState((theTodo) => ({
+      todos: theTodo.todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, complete: !todo.complete };
+        } else {
+          return todo;
+        }
+      }),
+    }));
+  };
+
   render() {
     return (
       <div>
         <form>
           <input
-            input
             type="text"
             value={this.state.text}
             placeholder="todo..."
             onChange={this.handleChange}
           />
-          <button onClick={this.handleSubmit}> Add </button>
+          <button onClick={this.handleSubmit}>add</button>
         </form>
-        {JSON.stringify(this.state.todos)}
+        {this.state.todos.map((todo) => (
+          <div
+            key={todo.id}
+            style={{ textDecoration: todo.complete ? "line-through" : "" }}
+            onClick={() => this.toggleComplete(todo.id)}
+          >
+            {todo.text}
+          </div>
+        ))}
       </div>
     );
   }
