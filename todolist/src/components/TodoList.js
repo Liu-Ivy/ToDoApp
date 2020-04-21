@@ -49,6 +49,10 @@ class TodoList extends Component {
     this.setState({ todos: this.state.todos.filter((todo) => todo.id !== id) });
   };
 
+  removeAllDones = () => {
+    this.setState({ todos: this.state.todos.filter((todo) => !todo.complete) });
+  };
+
   render() {
     let todos = [];
 
@@ -81,6 +85,9 @@ class TodoList extends Component {
         <button onClick={() => this.updateTodos("all")}>All</button>
         <button onClick={() => this.updateTodos("notDone")}>Not Done</button>
         <button onClick={() => this.updateTodos("done")}>Done</button>
+        <div>
+          <button onClick={this.removeAllDones}>Remove all Done</button>
+        </div>
       </div>
     );
   }
