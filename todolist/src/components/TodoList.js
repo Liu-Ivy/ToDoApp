@@ -41,10 +41,12 @@ class TodoList extends Component {
     });
   };
 
-  updatedShowTodo = (showTodo) => {
-    this.setState({
-      display: showTodo,
-    });
+  updateTodos = (showTodos) => {
+    this.setState({ display: showTodos });
+  };
+
+  handleDelete = (id) => {
+    this.setState({ todos: this.state.todos.filter((todo) => todo.id !== id) });
   };
 
   render() {
@@ -57,6 +59,7 @@ class TodoList extends Component {
     } else if (this.state.display === "done") {
       todos = this.state.todos.filter((todo) => todo.complete);
     }
+
     return (
       <div>
         <TodoForm onSubmit={this.addTodos} />
@@ -65,6 +68,7 @@ class TodoList extends Component {
           <Todo
             key={todo.id}
             todo={todo}
+            onDelete={() => this.handleDelete(todo.id)}
             toggleComplete={() => {
               this.toggleComplete(todo.id);
             }}
@@ -74,11 +78,9 @@ class TodoList extends Component {
           More things todo :
           {this.state.todos.filter((todo) => !todo.complete).length}
         </div>
-        <button onClick={() => this.updatedShowTodo("all")}>All</button>
-        <button onClick={() => this.updatedShowTodo("notDone")}>
-          Not Done
-        </button>
-        <button onClick={() => this.updatedShowTodo("done")}>Done</button>
+        <button onClick={() => this.updateTodos("all")}>All</button>
+        <button onClick={() => this.updateTodos("notDone")}>Not Done</button>
+        <button onClick={() => this.updateTodos("done")}>Done</button>
       </div>
     );
   }
