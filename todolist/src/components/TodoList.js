@@ -21,6 +21,7 @@ class TodoList extends Component {
   state = {
     todos: [],
     display: "all",
+    allComplete: true,
   };
   addTodos = (todo) => {
     this.setState({ todos: [todo, ...this.state.todos] });
@@ -46,8 +47,10 @@ class TodoList extends Component {
   };
 
   handleDelete = (id) => {
-    this.setState({ todos: this.state.todos.filter((todo) => todo.id !== id) });
-  };
+    this.setState((state) => ({
+      todos: state.todos.filter((todo) => todo.id !== id),
+    }));
+  }; //using state function instead of this.state.todos.........
 
   removeAllDones = () => {
     this.setState({ todos: this.state.todos.filter((todo) => !todo.complete) });
@@ -85,11 +88,26 @@ class TodoList extends Component {
         <button onClick={() => this.updateTodos("all")}>All</button>
         <button onClick={() => this.updateTodos("notDone")}>Not Done</button>
         <button onClick={() => this.updateTodos("done")}>Done</button>
-        {this.state.todos.some((todo) => todo.complete) ? (
+        {this.state.todos.some((todo) => todo.complete) ? ( //this.state.todos.filter((todo). => todo.complete) .length
           <div>
             <button onClick={this.removeAllDones}>Remove all Done</button>
           </div>
         ) : null}
+        <div>
+          <button
+            onClick={() =>
+              this.setState((state) => ({
+                todos: state.todos.map((todo) => ({
+                  ...todo,
+                  complete: state.allComplete,
+                })),
+                allComplete: !state.allComplete,
+              }))
+            }
+          >
+            all complete: {`${this.state.allComplete}`}
+          </button>
+        </div>
       </div>
     );
   }
