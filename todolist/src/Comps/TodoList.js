@@ -25,15 +25,19 @@ class TodoList extends Component {
     this.setState({ text: "" });
   };
   toggleComplete = (id) => {
-    this.setState((theTodo) => ({
-      todos: theTodo.todos.map((todo) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
         if (todo.id === id) {
-          return { ...todo, complete: !todo.complete };
+          return {
+            id: todo.id,
+            text: todo.text,
+            complete: !todo.complete,
+          };
         } else {
           return todo;
         }
       }),
-    }));
+    });
   };
 
   render() {

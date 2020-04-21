@@ -26,19 +26,18 @@ class TodoList extends Component {
   };
 
   toggleComplete = (id) => {
-    this.setState((theTodo) => ({
-      todos: theTodo.todos.map((todo) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
         if (todo.id === id) {
           return {
-            id: todo.id,
-            text: todo.text,
+            ...todo,
             complete: !todo.complete,
           };
         } else {
           return todo;
         }
       }),
-    }));
+    });
   };
 
   render() {
@@ -49,7 +48,7 @@ class TodoList extends Component {
         {this.state.todos.map((todo) => (
           <Todo
             key={todo.id}
-            text={todo.text}
+            todo={todo}
             toggleComplete={() => {
               this.toggleComplete(todo.id);
             }}

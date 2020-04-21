@@ -33,8 +33,8 @@ class TodoList extends Component {
     this.setState({ text: "" }); //to empty the inputfild
   };
   toggleComplete = (id) => {
-    this.setState((theTodo) => ({
-      todos: theTodo.todos.map((todo) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
         if (todo.id === id) {
           return {
             id: todo.id,
@@ -45,7 +45,7 @@ class TodoList extends Component {
           return todo;
         }
       }),
-    }));
+    });
   };
 
   render() {
