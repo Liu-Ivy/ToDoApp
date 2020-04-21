@@ -20,6 +20,7 @@ import Todo from "./Todo";
 class TodoList extends Component {
   state = {
     todos: [],
+    display: "all",
   };
   addTodos = (todo) => {
     this.setState({ todos: [todo, ...this.state.todos] });
@@ -40,12 +41,27 @@ class TodoList extends Component {
     });
   };
 
+  updatedShowTodo = (showTodo) => {
+    this.setState({
+      display: showTodo,
+    });
+  };
+
   render() {
+    let todos = [];
+
+    if (this.state.display === "all") {
+      todos = this.state.todos;
+    } else if (this.state.display === "notDone") {
+      todos = this.state.todos.filter((todo) => !todo.complete);
+    } else if (this.state.display === "done") {
+      todos = this.state.todos.filter((todo) => todo.complete);
+    }
     return (
       <div>
         <TodoForm onSubmit={this.addTodos} />
         {/* {JSON.stringify(this.state.todos)} */}
-        {this.state.todos.map((todo) => (
+        {todos.map((todo) => (
           <Todo
             key={todo.id}
             todo={todo}
@@ -54,6 +70,15 @@ class TodoList extends Component {
             }}
           />
         ))}
+        <div>
+          More things todo :
+          {this.state.todos.filter((todo) => !todo.complete).length}
+        </div>
+        <button onClick={() => this.updatedShowTodo("all")}>All</button>
+        <button onClick={() => this.updatedShowTodo("notDone")}>
+          Not Done
+        </button>
+        <button onClick={() => this.updatedShowTodo("done")}>Done</button>
       </div>
     );
   }
