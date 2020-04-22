@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import "../App.css";
 /*
   TodoMVC
   1. add todo
@@ -68,7 +69,7 @@ class TodoList extends Component {
     }
 
     return (
-      <div>
+      <div className="content">
         <TodoForm onSubmit={this.addTodos} />
         {/* {JSON.stringify(this.state.todos)} */}
         {todos.map((todo) => (

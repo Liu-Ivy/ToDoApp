@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100wh;
+  height: 100vh;
+}
+
+h1 {
+  background-color: rgba(64, 151, 209, 0.589);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./img/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
