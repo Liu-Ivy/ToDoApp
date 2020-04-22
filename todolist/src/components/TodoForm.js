@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import shortid from "shortid";
+import "../App.css";
 
 class TodoForm extends Component {
   state = {
