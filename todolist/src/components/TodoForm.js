@@ -25,6 +25,7 @@ class TodoForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            type="checkbox"
             name="text"
             value={this.state.text}
             placeholder="todo..."
