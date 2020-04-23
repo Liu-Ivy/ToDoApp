@@ -12,12 +12,14 @@ class TodoForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit({
-      id: shortid.generate(),
-      text: this.state.text,
-      complete: false,
-    });
-    this.setState({ text: "" }); //to empty the inputfild
+    if (this.state.text !== "") {
+      this.props.onSubmit({
+        id: shortid.generate(),
+        text: this.state.text,
+        complete: false,
+      });
+      this.setState({ text: "" }); //to empty the inputfild
+    }
   };
 
   render() {
@@ -31,9 +33,11 @@ class TodoForm extends Component {
             placeholder="todo..."
             onChange={this.handleChange}
           />
-          <button className="button" onClick={this.handleSubmit}>
-            Add
-          </button>
+          <button
+            className="input_btn far fa-plus-square"
+            style={{ border: "none" }}
+            onClick={this.handleSubmit}
+          ></button>
         </form>
       </div>
     );

@@ -4,7 +4,7 @@ function Todo(props) {
   console.log(props);
 
   return (
-    <div>
+    <div className="todos">
       <div
         style={{
           textDecoration: props.todo.complete ? "line-through" : "",
@@ -14,7 +14,7 @@ function Todo(props) {
         {props.todo.text}
       </div>
       <button
-        className="far fa-trash-alt"
+        className="iconbtn far fa-trash-alt"
         style={{ border: "none" }}
         onClick={props.onDelete}
       ></button>

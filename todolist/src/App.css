@@ -28,11 +28,69 @@ h1 {
   text-align: center;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 350px;
+  font-size: 20px;
+  padding: 0px 10px;
+  border: white dashed 3px;
+  border-radius: 8px;
+}
+
+.todos:hover {
+  animation: ro 7s linear infinite;
+}
+
+@keyframes ro {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.iconbtn {
+  padding-bottom: 15px;
+  background-color: rgba(245, 245, 245, 0);
+}
+
+input {
+  font-size: 20px;
+  padding: 15px;
+  border: solid 0 0 3px 0;
+  background-color: rgba(245, 245, 245, 0);
+  border: none;
+  border-bottom: rgba(51, 124, 172, 0.63) solid 1px;
+  background-color: rgba(245, 245, 245, 0);
+  width: 500px;
+}
+
+.input_btn {
+  margin: 10px;
+  font-size: 20px;
+  background-color: rgba(245, 245, 245, 0);
+}
+
 .button {
   margin: 10px 5px;
-  width: 80px;
+  width: 100px;
   height: 30px;
   border-radius: 5px;
   box-shadow: rgba(245, 245, 245, 0.363);
   background: rgba(245, 245, 245, 0);
+}
+
+.iconbtn {
+  font-size: medium;
+  margin: 15px 10px 0px;
 }

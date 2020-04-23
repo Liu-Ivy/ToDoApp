@@ -41,6 +41,7 @@ class TodoList extends Component {
         }
       }),
     });
+    // }
   };
 
   updateTodos = (showTodos) => {
