@@ -86,16 +86,25 @@ class TodoList extends Component {
           More things todo :
           {this.state.todos.filter((todo) => !todo.complete).length}
         </div>
-        <button onClick={() => this.updateTodos("all")}>All</button>
-        <button onClick={() => this.updateTodos("notDone")}>Not Done</button>
-        <button onClick={() => this.updateTodos("done")}>Done</button>
+        <button className="button" onClick={() => this.updateTodos("all")}>
+          All
+        </button>
+        <button className="button" onClick={() => this.updateTodos("notDone")}>
+          Not Done
+        </button>
+        <button className="button" onClick={() => this.updateTodos("done")}>
+          Done
+        </button>
         {this.state.todos.some((todo) => todo.complete) ? ( //this.state.todos.filter((todo). => todo.complete) .length
           <div>
-            <button onClick={this.removeAllDones}>Remove all Done</button>
+            <button className="button" onClick={this.removeAllDones}>
+              Remove all Done
+            </button>
           </div>
         ) : null}
         <div>
           <button
+            className="button"
             onClick={() =>
               this.setState((state) => ({
                 todos: state.todos.map((todo) => ({

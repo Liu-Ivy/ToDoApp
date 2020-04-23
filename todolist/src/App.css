@@ -28,10 +28,11 @@ h1 {
   text-align: center;
 }
 
-button {
+.button {
   margin: 10px 5px;
-  border: none;
-  width: 100px;
+  width: 80px;
   height: 30px;
+  border-radius: 5px;
+  box-shadow: rgba(245, 245, 245, 0.363);
   background: rgba(245, 245, 245, 0);
 }

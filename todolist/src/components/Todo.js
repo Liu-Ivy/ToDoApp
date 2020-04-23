@@ -13,7 +13,11 @@ function Todo(props) {
       >
         {props.todo.text}
       </div>
-      <button onClick={props.onDelete}>-</button>
+      <button
+        className="far fa-trash-alt"
+        style={{ border: "none" }}
+        onClick={props.onDelete}
+      ></button>
     </div>
   );
 }

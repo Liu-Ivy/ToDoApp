@@ -25,13 +25,15 @@ class TodoForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
-            type="checkbox"
+            className="input"
             name="text"
             value={this.state.text}
             placeholder="todo..."
             onChange={this.handleChange}
           />
-          <button onClick={this.handleSubmit}> Add </button>
+          <button className="button" onClick={this.handleSubmit}>
+            Add
+          </button>
         </form>
       </div>
     );
