@@ -91,6 +91,7 @@ input {
   box-shadow: rgba(245, 245, 245, 0.363);
   background: rgba(245, 245, 245, 0);
   border: rgb(236, 225, 195) solid;
+  font-size: 15px;
 }
 
 .counter {
@@ -106,4 +107,5 @@ input {
   box-shadow: rgba(245, 245, 245, 0.363);
   background: rgba(245, 245, 245, 0);
   border: rgb(236, 225, 195) solid;
+  font-size: 15px;
 }
