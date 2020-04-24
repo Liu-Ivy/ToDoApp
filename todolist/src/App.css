@@ -72,7 +72,7 @@ input {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  border-bottom: rgba(75, 75, 75, 0.616) solid 1.5px;
+  border-bottom: rgb(236, 225, 195) solid 1.5px;
   background-color: rgba(245, 245, 245, 0);
   width: 500px;
 }
@@ -90,9 +90,20 @@ input {
   border-radius: 5px;
   box-shadow: rgba(245, 245, 245, 0.363);
   background: rgba(245, 245, 245, 0);
+  border: rgb(236, 225, 195) solid;
 }
 
 .counter {
   font-size: 20px;
   margin: 25px auto;
+}
+
+.done-btn {
+  margin: 10px 5px;
+  width: 320px;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: rgba(245, 245, 245, 0.363);
+  background: rgba(245, 245, 245, 0);
+  border: rgb(236, 225, 195) solid;
 }

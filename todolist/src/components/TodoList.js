@@ -97,28 +97,29 @@ class TodoList extends Component {
           Done
         </button>
         {this.state.todos.some((todo) => todo.complete) ? ( //this.state.todos.filter((todo). => todo.complete) .length
-          <div>
+          <div className="done-btn">
             <button className="button" onClick={this.removeAllDones}>
               Remove all Done
             </button>
           </div>
-        ) : null}
-        <div>
-          <button
-            className="button"
-            onClick={() =>
-              this.setState((state) => ({
-                todos: state.todos.map((todo) => ({
-                  ...todo,
-                  complete: state.allComplete,
-                })),
-                allComplete: !state.allComplete,
-              }))
-            }
-          >
-            all complete: {`${this.state.allComplete}`}
-          </button>
-        </div>
+        ) : (
+          <div>
+            <button
+              className="done-btn"
+              onClick={() =>
+                this.setState((state) => ({
+                  todos: state.todos.map((todo) => ({
+                    ...todo,
+                    complete: state.allComplete,
+                  })),
+                  allComplete: !state.allComplete,
+                }))
+              }
+            >
+              All Completed
+            </button>
+          </div>
+        )}
       </div>
     );
   }
