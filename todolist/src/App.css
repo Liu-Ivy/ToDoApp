@@ -38,15 +38,15 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
+  margin: 10px auto;
   width: 350px;
   font-size: 20px;
   padding: 0px 10px;
-  border: white dashed 3px;
+  border: rgba(75, 75, 75, 0.616) dashed 3px;
   border-radius: 8px;
 }
 
-.todos:hover {
+.todos:hover::after {
   animation: ro 7s linear infinite;
 }
 
@@ -60,17 +60,19 @@ form {
 }
 
 .iconbtn {
-  padding-bottom: 15px;
+  font-size: medium;
+  padding: 10px 15px;
   background-color: rgba(245, 245, 245, 0);
+  border: none;
+  border-left: rgba(75, 75, 75, 0.466) solid 2px;
 }
 
 input {
   font-size: 20px;
-  padding: 15px;
-  border: solid 0 0 3px 0;
-  background-color: rgba(245, 245, 245, 0);
+  padding: 10px;
   border: none;
-  border-bottom: rgba(51, 124, 172, 0.63) solid 1px;
+  border-radius: 5px;
+  border-bottom: rgba(75, 75, 75, 0.616) solid 1.5px;
   background-color: rgba(245, 245, 245, 0);
   width: 500px;
 }
@@ -90,7 +92,7 @@ input {
   background: rgba(245, 245, 245, 0);
 }
 
-.iconbtn {
-  font-size: medium;
-  margin: 15px 10px 0px;
+.counter {
+  font-size: 20px;
+  margin: 25px auto;
 }

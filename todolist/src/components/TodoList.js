@@ -83,7 +83,7 @@ class TodoList extends Component {
             }}
           />
         ))}
-        <div>
+        <div className="counter">
           More things todo :
           {this.state.todos.filter((todo) => !todo.complete).length}
         </div>

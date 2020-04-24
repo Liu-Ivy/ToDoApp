@@ -15,7 +15,6 @@ function Todo(props) {
       </div>
       <button
         className="iconbtn far fa-trash-alt"
-        style={{ border: "none" }}
         onClick={props.onDelete}
       ></button>
     </div>
@@ -23,3 +22,6 @@ function Todo(props) {
 }
 
 export default Todo;
+{
+  /* style={{ border: "none" }} */
+}
