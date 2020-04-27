@@ -43,8 +43,27 @@ form {
   font-size: 20px;
   padding: 0px 10px;
   position: relative;
-  border: rgba(75, 75, 75, 0.616) dashed 3px;
+  border: rgba(75, 75, 75, 0.616) solid 3px;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+.todos::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: yellow;
+  height: 100%;
+  width: 85%;
+  z-index: -1;
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+  transition: transform 0.5s;
+}
+
+.todos:hover::before {
+  transform: rotate(0);
 }
 
 .iconbtn {
