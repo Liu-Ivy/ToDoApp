@@ -34,6 +34,13 @@ form {
   margin: 20px;
 }
 
+input,
+.todos,
+.button,
+.done-btn:focus {
+  outline: none;
+}
+
 .todos {
   display: flex;
   justify-content: space-between;
