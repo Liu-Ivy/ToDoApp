@@ -36,6 +36,7 @@ form {
 
 input,
 .todos,
+.input_btn,
 .button,
 .done-btn:focus {
   outline: none;
@@ -95,6 +96,7 @@ input {
   margin: 10px;
   font-size: 20px;
   background-color: rgba(245, 245, 245, 0);
+  position: relative;
 }
 
 .button {
@@ -152,7 +154,7 @@ input {
   width: 100%;
   z-index: -1;
   transform: rotateX(90deg);
-  transition: transform 0.4s;
+  transition: transform 0.8s;
 }
 
 .button:hover::before {
