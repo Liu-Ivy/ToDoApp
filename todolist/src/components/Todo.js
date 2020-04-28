@@ -22,6 +22,3 @@ function Todo(props) {
 }
 
 export default Todo;
-{
-  /* style={{ border: "none" }} */
-}

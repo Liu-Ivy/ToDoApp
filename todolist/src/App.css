@@ -66,7 +66,7 @@ input,
   z-index: -1;
   transform-origin: bottom left;
   transform: rotate(-90deg);
-  transition: transform 0.5s;
+  transition: transform 0.4s;
 }
 
 .todos:hover::before {
@@ -106,6 +106,7 @@ input {
   background: rgba(245, 245, 245, 0);
   border: rgb(236, 225, 195) solid;
   font-size: 15px;
+  position: relative;
 }
 
 .counter {
@@ -118,17 +119,42 @@ input {
   width: 320px;
   height: 30px;
   border-radius: 5px;
-  box-shadow: rgba(245, 245, 245, 0.363);
   background: rgba(245, 245, 245, 0);
   border: rgb(236, 225, 195) solid;
   font-size: 15px;
+  position: relative;
 }
 
-.done-btn::after {
-  background: black;
-  transition: 0.2s;
+.done-btn::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: yellow;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transform: rotateX(90deg);
+  transition: transform 0.4s;
 }
 
-.done-btn:hover::after {
-  transform: scale(0.8);
+.done-btn:hover::before {
+  transform: rotateX(0);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: yellow;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transform: rotateX(90deg);
+  transition: transform 0.4s;
+}
+
+.button:hover::before {
+  transform: rotateX(0);
 }
