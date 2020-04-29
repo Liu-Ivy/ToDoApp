@@ -1,13 +1,11 @@
 import React from "react";
-import Todo from "./Component/Todo";
-import "./App.css";
+import TodoItem from "./Component/Todo-item";
 
 function App() {
   return (
     <div>
       <header>
         <h1>To Do List - Hooks/Tsx</h1>
-        <Todo />
       </header>
     </div>
   );
